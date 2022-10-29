@@ -1,5 +1,5 @@
 // Tenemos un li de productos
-
+/* Interpreto que este programa filta ya sea por color o por tipo  para mostrar en pantalla al hacer click en filtrar */
 const productos = [
   {nombre: "Zapato negro", tipo: "zapato", color: "negro", img: "./taco-negro.jpg"},
   {nombre: "Zapato azul", tipo: "zapato", color: "azul", img: "./taco-azul.jpg"},
@@ -8,7 +8,8 @@ const productos = [
   {nombre: "Zapato rojo", tipo: "zapato", color: "rojo", img: "./zapato-rojo.jpg"}
 ]
 
-const li = document.getElementsByName("lista-de-productos")
+/* Se cambio getElementByName por getElementById  */
+const li = document.getElementById("lista-de-productos")
 const $i = document.querySelector('.input');
 
 for (let i = 0; i < productos.length; i++) {
@@ -27,9 +28,9 @@ for (let i = 0; i < productos.length; i++) {
 
   li.appendChild(d)
 }
-
-displayProductos(productos)
-const botonDeFiltro = document.querySelector("button");
+/* Se agrego la funcion */
+function displayProductos(productos){
+const botonDeFiltro = document.getElementById(".button");
 
 botonDeFiltro.onclick = function() {
   while (li.firstChild) {
@@ -56,6 +57,7 @@ botonDeFiltro.onclick = function() {
   
     li.appendChild(d)
   }
+}
 }
 
 const filtrado = (productos = [], texto) => {
